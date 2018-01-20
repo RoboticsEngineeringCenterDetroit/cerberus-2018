@@ -114,8 +114,7 @@ public class OI {
     	aButton.whileHeld(new Blend(-1.0));
     	aButton.whenReleased(new Blend(0));
     	
-    	rBumper.whileHeld(new Shoot(0.75));
-    	rBumper.whenReleased(new Shoot(0));
+    	rBumper.whenPressed(new ShiftGear());
     	
     	backButton.whenPressed(new BackUp(0.5 , 0.5));
     	startButton.whenPressed(new FlipShooterGate(0.4));

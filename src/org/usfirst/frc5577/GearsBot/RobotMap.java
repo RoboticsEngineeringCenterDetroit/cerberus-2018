@@ -34,6 +34,9 @@ public class RobotMap {
     
     public static TalonSRX climberMotor;
     public static Servo servo;
+    public static Compressor compressor;
+    public static Solenoid solenoid1;
+    public static Solenoid solenoid2;
     
     public static void init() {
     	
@@ -63,5 +66,11 @@ public class RobotMap {
 //        LiveWindow.addActuator("Shooter", "Motor", (CANTalon) shooterMotor);
         
         servo = new Servo(2);
+        
+        compressor = new Compressor();
+        compressor.setClosedLoopControl(true);
+        
+        solenoid1 = new Solenoid(0);
+        solenoid2 = new Solenoid(1);
     }
 }

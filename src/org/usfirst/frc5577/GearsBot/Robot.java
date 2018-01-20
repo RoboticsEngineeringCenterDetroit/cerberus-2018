@@ -60,6 +60,7 @@ public class Robot extends IterativeRobot {
     public static ShooterGate shooterGate;
     public static ADIS16448_IMU imu;
     public static ADXRS453Gyro gyro;
+    public static Pneumatics pneumatics;
     
     // Camera and Vision
     public static CameraServer cameraServer1;
@@ -81,6 +82,7 @@ public class Robot extends IterativeRobot {
             shooterGate = new ShooterGate();
             imu = new ADIS16448_IMU();
             gyro = new ADXRS453Gyro();
+            pneumatics = new Pneumatics();
 
             // OI must be constructed after subsystems. If the OI creates Commands 
             //(which it very likely will), subsystems are not guaranteed to be 
