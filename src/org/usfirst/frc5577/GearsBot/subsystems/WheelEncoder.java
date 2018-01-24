@@ -20,5 +20,9 @@ public class WheelEncoder extends Subsystem {
 	public double getDistance() {
 		return wheelEncoder.getDistance();
 	}
+	
+	public void reset () {
+		wheelEncoder.reset();
+	}
 
 }

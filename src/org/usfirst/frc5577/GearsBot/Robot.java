@@ -61,6 +61,8 @@ public class Robot extends IterativeRobot {
     public static ADIS16448_IMU imu;
     public static ADXRS453Gyro gyro;
     public static Pneumatics pneumatics;
+    public static WheelEncoder leftwheelencoder;
+    public static WheelEncoder rightwheelencoder;
     
     // Camera and Vision
     public static CameraServer cameraServer1;
