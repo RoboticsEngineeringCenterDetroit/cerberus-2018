@@ -5,13 +5,28 @@ import org.usfirst.frc5577.GearsBot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class ShiftGear extends Command {
-	private boolean isHighGear = false; 
+	
+	double time = 0.5;
+	private boolean isHighGear = false;
+	
+	public ShiftGear() {
+		requires(Robot.pneumatics);
+		
+	}
+	protected void initialize() {
+	  	setTimeout(time); 
+	  }
 
 	@Override
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
-		return false;
+		return isTimedOut();
 	}
+	 // Called once after isFinished returns true
+	  protected void end() {
+	  	//Robot.climbingArm.disable();
+	  	
+	  	Robot.pneumatics.shiftToLowGear(); 
+	  }
 	protected void execute() {
 		if (isHighGear) {
 			Robot.pneumatics.shiftToLowGear();

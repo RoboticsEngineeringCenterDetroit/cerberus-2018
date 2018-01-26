@@ -72,5 +72,7 @@ public class RobotMap {
         
         solenoid1 = new Solenoid(0);
         solenoid2 = new Solenoid(1);
+        solenoid1.set(false);
+        solenoid2.set(false);
     }
 }

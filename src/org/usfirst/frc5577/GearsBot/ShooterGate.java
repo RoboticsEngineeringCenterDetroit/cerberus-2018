@@ -17,7 +17,7 @@ public class ShooterGate extends Subsystem {
 	}
 	
 	public double getPosition() {
-		return shooterGateServo.get();
+		 return shooterGateServo.get();
 	}
 	
 //	public void spin(double speed) {
