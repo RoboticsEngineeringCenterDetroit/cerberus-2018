@@ -6,15 +6,16 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class ShiftGear extends Command {
 	
-	double time = 0.5;
-	private boolean isHighGear = false;
+	private boolean initialGearState;
+	private double time = 0.5;
 	
 	public ShiftGear() {
 		requires(Robot.pneumatics);
 		
 	}
 	protected void initialize() {
-	  	setTimeout(time); 
+		setTimeout(time);
+	  	initialGearState = Robot.pneumatics.isHighGear(); 
 	  }
 
 	@Override
@@ -22,16 +23,13 @@ public class ShiftGear extends Command {
 		return isTimedOut();
 	}
 	 // Called once after isFinished returns true
-	  protected void end() {
-	  	//Robot.climbingArm.disable();
-	  	
-	  	Robot.pneumatics.shiftToLowGear(); 
-	  }
+	  protected void end() {	  	
+//	  	Robot.pneumatics.stop();
+	  	}
+	  
 	protected void execute() {
-		if (isHighGear) {
-			Robot.pneumatics.shiftToLowGear();
-		} else {
-			Robot.pneumatics.shiftToHighGear();
+		if (initialGearState == Robot.pneumatics.isHighGear()) {
+			Robot.pneumatics.shiftGear();
 		}
 	}
 }

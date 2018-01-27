@@ -35,8 +35,7 @@ public class RobotMap {
     public static TalonSRX climberMotor;
     public static Servo servo;
     public static Compressor compressor;
-    public static Solenoid solenoid1;
-    public static Solenoid solenoid2;
+    public static DoubleSolenoid gas_system;
     
     public static void init() {
     	
@@ -70,9 +69,7 @@ public class RobotMap {
         compressor = new Compressor();
         compressor.setClosedLoopControl(true);
         
-        solenoid1 = new Solenoid(0);
-        solenoid2 = new Solenoid(1);
-        solenoid1.set(false);
-        solenoid2.set(false);
+        gas_system= new DoubleSolenoid(0,1);
+        gas_system.set(DoubleSolenoid.Value.kOff);
     }
 }
