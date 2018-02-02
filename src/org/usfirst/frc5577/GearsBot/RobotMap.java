@@ -12,6 +12,9 @@
 package org.usfirst.frc5577.GearsBot;
     
 import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+
+import org.usfirst.frc5577.GearsBot.subsystems.WheelEncoder;
 
 import com.ctre.phoenix.motorcontrol.can.*;
 
@@ -27,7 +30,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 public class RobotMap {
     public static SpeedController driveTrainRightMotor;
     public static SpeedController driveTrainLeftMotor;
-    public static RobotDrive driveTrainRobotDrive;
+    public static DifferentialDrive driveTrainRobotDrive;
     public static TalonSRX shooterMotor;
     public static TalonSRX blenderMotor;
     public static TalonSRX intakeMotor;
@@ -36,8 +39,10 @@ public class RobotMap {
     public static Servo servo;
     public static Compressor compressor;
     public static DoubleSolenoid gas_system;
+    public static Encoder leftWheelEncoder;
+    public static Encoder rightWheelEncoder;
     
-    public static void init() {
+ static void init() {
     	
         driveTrainLeftMotor = new Spark(0);
         LiveWindow.addActuator("Drive Train", "Left Motor", (Spark) driveTrainLeftMotor);
@@ -45,11 +50,10 @@ public class RobotMap {
         driveTrainRightMotor = new Spark(1);
         LiveWindow.addActuator("Drive Train", "Right Motor", (Spark) driveTrainRightMotor);
         
-        driveTrainRobotDrive = new RobotDrive(driveTrainLeftMotor, driveTrainRightMotor);
+        driveTrainRobotDrive = new DifferentialDrive(driveTrainLeftMotor, driveTrainRightMotor);
         
         driveTrainRobotDrive.setSafetyEnabled(true);
         driveTrainRobotDrive.setExpiration(0.1);
-        driveTrainRobotDrive.setSensitivity(0.5);
         driveTrainRobotDrive.setMaxOutput(1.0);
         
         blenderMotor = new TalonSRX(3);
@@ -71,5 +75,11 @@ public class RobotMap {
         
         gas_system= new DoubleSolenoid(0,1);
         gas_system.set(DoubleSolenoid.Value.kOff);
+        
+        leftWheelEncoder = new Encoder(0,1);
+        rightWheelEncoder = new Encoder(2,3);
+        
+        
+        
     }
 }
