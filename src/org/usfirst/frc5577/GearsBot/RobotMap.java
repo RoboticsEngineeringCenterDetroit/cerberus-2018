@@ -73,13 +73,10 @@ public class RobotMap {
         compressor = new Compressor();
         compressor.setClosedLoopControl(true);
         
-        gas_system= new DoubleSolenoid(0,1);
+        gas_system = new DoubleSolenoid(0,1);
         gas_system.set(DoubleSolenoid.Value.kOff);
         
         leftWheelEncoder = new Encoder(0,1);
         rightWheelEncoder = new Encoder(2,3);
-        
-        
-        
     }
 }

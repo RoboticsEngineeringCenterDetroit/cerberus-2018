@@ -58,12 +58,11 @@ public class DriveTrain extends Subsystem {
     }*/
     
     public void driveTrainFoward(double speed) {
-//    	robotDrive.tankDrive(speed, speed);
     	Timer.delay(0.005);
     	robotDrive.arcadeDrive(speed, 0); 
     }
+    
     public void driveTrainBackward(double speed) {
-//    	robotDrive.tankDrive(-speed, -speed);
     	Timer.delay(0.005);
     	robotDrive.arcadeDrive(-speed, 0); 
     }
@@ -86,7 +85,7 @@ public class DriveTrain extends Subsystem {
 //    	robotDrive.arcadeDrive(xBoxCont);
     	
     	robotDrive.arcadeDrive(-xBoxCont.getRawAxis(Robot.oi.LEFT_AXIS_Y)*driveTrainSpeed,
-    			-xBoxCont.getRawAxis(Robot.oi.LEFT_AXIS_X)*driveTrainSpeed,
+    			xBoxCont.getRawAxis(Robot.oi.LEFT_AXIS_X)*driveTrainSpeed,
     			true);  
     	Timer.delay(0.005);
     }

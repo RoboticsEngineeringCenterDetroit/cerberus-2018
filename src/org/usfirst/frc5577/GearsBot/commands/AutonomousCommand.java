@@ -36,9 +36,9 @@ public class AutonomousCommand extends CommandGroup {
         // arm.
     	
         addSequential(new DriveForward(0.6, 2));
-    	addSequential(new Turn(-225));
-    	addSequential(new DriveForward(0.7, 3));
-    	addSequential(new BackUp(0.5, 0.5));
+//    	addSequential(new Turn(-225));
+//    	addSequential(new DriveForward(0.7, 3));
+//    	addSequential(new BackUp(0.5, 0.5));
     }  
     
 }

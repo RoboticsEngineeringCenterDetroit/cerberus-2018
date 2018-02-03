@@ -1,4 +1,6 @@
-package org.usfirst.frc5577.GearsBot;
+package org.usfirst.frc5577.GearsBot.subsystems;
+
+import org.usfirst.frc5577.GearsBot.RobotMap;
 
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
