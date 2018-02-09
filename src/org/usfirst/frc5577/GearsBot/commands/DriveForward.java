@@ -11,6 +11,7 @@
 
 package org.usfirst.frc5577.GearsBot.commands;
 import org.usfirst.frc5577.GearsBot.Robot;
+import org.usfirst.frc5577.GearsBot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -20,7 +21,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveForward extends Command {
 	
 	double speed = 0.75;
-    double distance = 1.5;
+    double distanceInInches = 24;
     double time = 0.5;
     
     public DriveForward() {
@@ -32,9 +33,9 @@ public class DriveForward extends Command {
 //    	this.speed = speed;
 //    }
     
-    public DriveForward(double distance) {
+    public DriveForward(double distanceInFeet) {
     	this();
-    	this.distance = distance;
+    	this.distanceInInches = 12 * distanceInFeet;
     }
     
     public DriveForward(double speed, double time) {
@@ -45,22 +46,28 @@ public class DriveForward extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setTimeout(time); //Or change back to 5 if something goes wrong
-//    	Robot.leftwheelencoder.reset();
-//    	Robot.rightwheelencoder.reset();
+//    	setTimeout(time); //Or change back to 5 if something goes wrong
+    	RobotMap.leftWheelEncoder.reset();
+    	RobotMap.rightWheelEncoder.reset();    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+//    	Robot.driveTrain.driveTrainForwardWithDistance(distance);
     	Robot.driveTrain.driveTrainFoward(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-//    	if(Robot.leftwheelencoder.getDistance()>=this.distance && Robot.rightwheelencoder.getDistance()>=this.distance)
-//    		return true;
-//    	return false;
-    	return isTimedOut();
+        System.out.println("Right wheel encoder count: " + RobotMap.rightWheelEncoder.get());
+        System.out.println("Right wheel encoder distance traveled: " + RobotMap.rightWheelEncoder.getDistance());
+    	
+    	if(RobotMap.rightWheelEncoder.getDistance()>=this.distanceInInches) {
+    		System.out.println("Finished the command!");
+    		return true;
+    	}
+    	return false;
+//    	return isTimedOut();
     }
 
     // Called once after isFinished returns true

@@ -56,9 +56,17 @@ public class DriveTrain extends Subsystem {
     public void arcadeDrive(Joystick stick){
     	robotDrive.arcadeDrive(stick);
     }*/
+     
+     public void driveTrainForwardWithDistance(double distance) {
+    	 leftWheelControl.setSetpoint(distance);
+    	 rightWheelControl.setSetpoint(distance);
+    	 robotDrive.arcadeDrive(0.25, 0); 
+     }
     
     public void driveTrainFoward(double speed) {
     	Timer.delay(0.005);
+    	 leftWheelControl.setSetpoint(2);
+    	 rightWheelControl.setSetpoint(2);
     	robotDrive.arcadeDrive(speed, 0); 
     }
     

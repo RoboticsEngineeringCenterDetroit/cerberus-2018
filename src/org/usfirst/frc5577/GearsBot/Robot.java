@@ -176,7 +176,10 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
-        reportContours();
+//        reportContours();
+//        
+//        System.out.println("Right wheel encoder count: " + RobotMap.rightWheelEncoder.get());
+//        System.out.println("Right wheel encoder distance traveled: " + RobotMap.rightWheelEncoder.getDistance());
     }
 
 

@@ -57,16 +57,12 @@ public class RobotMap {
         driveTrainRobotDrive.setMaxOutput(1.0);
         
         blenderMotor = new TalonSRX(3);
-//        LiveWindow.addActuator("Blender", "Motor", (CANTalon) blenderMotor);//should be controlled by raising and lowering of buttons A and Y
         
         intakeMotor = new TalonSRX(2);
-//        LiveWindow.addActuator("Intake", "Motor", (CANTalon) intakeMotor);
         
         climberMotor = new TalonSRX(1);
-//        LiveWindow.addActuator("Climber", "Motor", (CANTalon) climberMotor);
         
         shooterMotor = new TalonSRX(4);
-//        LiveWindow.addActuator("Shooter", "Motor", (CANTalon) shooterMotor);
         
         servo = new Servo(2);
         
@@ -76,7 +72,15 @@ public class RobotMap {
         gas_system = new DoubleSolenoid(0,1);
         gas_system.set(DoubleSolenoid.Value.kOff);
         
-        leftWheelEncoder = new Encoder(0,1);
-        rightWheelEncoder = new Encoder(2,3);
+        leftWheelEncoder = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
+//        leftWheelEncoder = new Encoder(2, 3);
+        leftWheelEncoder.setDistancePerPulse(.147);
+        leftWheelEncoder.setSamplesToAverage(10);
+        leftWheelEncoder.reset();
+        rightWheelEncoder = new Encoder(0, 1, true, Encoder.EncodingType.k4X);
+//        rightWheelEncoder = new Encoder(0, 1);
+        rightWheelEncoder.setDistancePerPulse (.147);
+        rightWheelEncoder.setSamplesToAverage(10);
+        rightWheelEncoder.reset();
     }
 }
