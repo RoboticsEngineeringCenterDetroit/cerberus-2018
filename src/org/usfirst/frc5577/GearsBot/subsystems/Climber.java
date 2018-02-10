@@ -32,19 +32,19 @@ public class Climber extends Subsystem {
     }
    
     public void moveArm(double velocity){
-    	RobotMap.climberMotor.set(ControlMode.PercentOutput, velocity);
+    	RobotMap.talonSRX5.set(ControlMode.PercentOutput, velocity);
     }
     
     public void upElevator(double speed){	
-    	RobotMap.climberMotor.set(ControlMode.PercentOutput, speed); 
+    	RobotMap.talonSRX5.set(ControlMode.PercentOutput, speed); 
     }
     
     public void downElevator(double speed){
-    	RobotMap.climberMotor.set(ControlMode.PercentOutput, -speed);
+    	RobotMap.talonSRX5.set(ControlMode.PercentOutput, -speed);
     }
     
     public void stop(){
-    	RobotMap.climberMotor.set(ControlMode.PercentOutput, 0); 
+    	RobotMap.talonSRX5.set(ControlMode.PercentOutput, 0); 
     }
 
 

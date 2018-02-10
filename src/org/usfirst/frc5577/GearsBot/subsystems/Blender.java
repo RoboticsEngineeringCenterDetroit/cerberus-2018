@@ -29,7 +29,7 @@ public class Blender extends Subsystem {
     }
     
     public void blend(double speed) {
-    	RobotMap.blenderMotor.set(ControlMode.PercentOutput, speed);
+    	RobotMap.talonSRX3.set(ControlMode.PercentOutput, speed);
     	Timer.delay(0.005);
     }
 	@Override

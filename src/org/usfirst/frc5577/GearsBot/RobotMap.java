@@ -18,8 +18,6 @@ import org.usfirst.frc5577.GearsBot.subsystems.WheelEncoder;
 
 import com.ctre.phoenix.motorcontrol.can.*;
 
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -31,11 +29,13 @@ public class RobotMap {
     public static SpeedController driveTrainRightMotor;
     public static SpeedController driveTrainLeftMotor;
     public static DifferentialDrive driveTrainRobotDrive;
-    public static TalonSRX shooterMotor;
-    public static TalonSRX blenderMotor;
-    public static TalonSRX intakeMotor;
     
-    public static TalonSRX climberMotor;
+    public static TalonSRX talonSRX2;
+    public static TalonSRX talonSRX3;
+    public static TalonSRX talonSRX4;
+    public static TalonSRX talonSRX5;
+    public static TalonSRX talonSRX6;
+    
     public static Servo servo;
     public static Compressor compressor;
     public static DoubleSolenoid gas_system;
@@ -45,10 +45,7 @@ public class RobotMap {
  static void init() {
     	
         driveTrainLeftMotor = new Spark(0);
-        LiveWindow.addActuator("Drive Train", "Left Motor", (Spark) driveTrainLeftMotor);
-        
         driveTrainRightMotor = new Spark(1);
-        LiveWindow.addActuator("Drive Train", "Right Motor", (Spark) driveTrainRightMotor);
         
         driveTrainRobotDrive = new DifferentialDrive(driveTrainLeftMotor, driveTrainRightMotor);
         
@@ -56,13 +53,11 @@ public class RobotMap {
         driveTrainRobotDrive.setExpiration(0.1);
         driveTrainRobotDrive.setMaxOutput(1.0);
         
-        blenderMotor = new TalonSRX(3);
-        
-        intakeMotor = new TalonSRX(2);
-        
-        climberMotor = new TalonSRX(1);
-        
-        shooterMotor = new TalonSRX(4);
+        talonSRX2 = new TalonSRX(2);
+        talonSRX3 = new TalonSRX(3);
+        talonSRX4 = new TalonSRX(4);
+        talonSRX5 = new TalonSRX(5);
+        talonSRX6 = new TalonSRX(6);
         
         servo = new Servo(2);
         

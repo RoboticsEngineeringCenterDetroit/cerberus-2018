@@ -17,35 +17,35 @@ public class Shooter extends Subsystem {
 	int loops = 0;
 	
 	public Shooter() {
-		RobotMap.shooterMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
-		RobotMap.shooterMotor.configNominalOutputForward(+0.0, -0);
-		RobotMap.shooterMotor.configPeakOutputForward(+12.0, -12);
-		RobotMap.shooterMotor.selectProfileSlot(0, 0);
-		RobotMap.shooterMotor.config_kF(0, 0.01, 0);
-		RobotMap.shooterMotor.config_kP(0, 0.0, 0);
-		RobotMap.shooterMotor.config_kI(0, 0.0, 0);
-		RobotMap.shooterMotor.config_kD(0, 0.0, 0);
-		RobotMap.shooterMotor.set(ControlMode.PercentOutput, 0);
+		RobotMap.talonSRX2.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
+		RobotMap.talonSRX2.configNominalOutputForward(+0.0, -0);
+		RobotMap.talonSRX2.configPeakOutputForward(+12.0, -12);
+		RobotMap.talonSRX2.selectProfileSlot(0, 0);
+		RobotMap.talonSRX2.config_kF(0, 0.01, 0);
+		RobotMap.talonSRX2.config_kP(0, 0.0, 0);
+		RobotMap.talonSRX2.config_kI(0, 0.0, 0);
+		RobotMap.talonSRX2.config_kD(0, 0.0, 0);
+		RobotMap.talonSRX2.set(ControlMode.PercentOutput, 0);
 	}
 	
 	public void shootOutBall(double speed) {
 		Joystick controller = Robot.oi.getJoystick();
 		
-		double motorOutput = RobotMap.shooterMotor.getMotorOutputVoltage() / RobotMap.shooterMotor.getBusVoltage();
+		double motorOutput = RobotMap.talonSRX2.getMotorOutputVoltage() / RobotMap.talonSRX2.getBusVoltage();
 		sb.append("\tout:");
 		sb.append(motorOutput);
 		sb.append("\tspeed");
-		sb.append(RobotMap.shooterMotor.getSelectedSensorVelocity(0));
+		sb.append(RobotMap.talonSRX2.getSelectedSensorVelocity(0));
 		
 //		double rightTrigger = controller.getRawAxis(Robot.oi.RIGHT_TRIGGER_AXIS);
 //		RobotMap.shooterLeftMotor.setInverted(false);
 //		RobotMap.shooterRightMotor.setInverted(false);
 		
 		double targetSpeed = speed; // 6000 RPM target
-		RobotMap.shooterMotor.set(ControlMode.PercentOutput, targetSpeed);
+		RobotMap.talonSRX2.set(ControlMode.PercentOutput, targetSpeed);
 		
 		sb.append("/terr"); 
-		sb.append(RobotMap.shooterMotor.getClosedLoopError(0)); 
+		sb.append(RobotMap.talonSRX2.getClosedLoopError(0)); 
 		sb.append("/ttrg:");  
 		sb.append(targetSpeed); 
 	
@@ -61,7 +61,7 @@ public class Shooter extends Subsystem {
 	}
 	
 	public void stop() {
-		RobotMap.shooterMotor.set(ControlMode.PercentOutput, 0);
+		RobotMap.talonSRX2.set(ControlMode.PercentOutput, 0);
 //		RobotMap.blenderMotor.set(0);
 //    	Timer.delay(0.005);
 	}

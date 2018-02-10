@@ -20,12 +20,12 @@ public class Intake extends Subsystem {
 //		double leftAxisX = controller.getRawAxis(Robot.oi.LEFT_AXIS_X);
 //		controller.getButton()
 
-		RobotMap.intakeMotor.set(ControlMode.PercentOutput, speed);
+		RobotMap.talonSRX4.set(ControlMode.PercentOutput, speed);
 //    	Timer.delay(0.005);
 	}
 	
 	public void stop() {
-		RobotMap.intakeMotor.set(ControlMode.PercentOutput, 0);
+		RobotMap.talonSRX4.set(ControlMode.PercentOutput, 0);
 //		RobotMap.blenderMotor.set(0);
 //    	Timer.delay(0.005);
 	}
