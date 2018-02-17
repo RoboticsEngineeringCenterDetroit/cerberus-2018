@@ -13,21 +13,29 @@ public class Intake extends Subsystem {
 	
 	private final double scaleFactor = 0.85;
 	
-	public void intakeBall(double speed) {
-		Joystick controller = Robot.oi.getJoystick();
+	public void intakeCube(double speed) {
+//		Joystick controller = Robot.oi.getJoystick();
 		
 //		double leftTrigger = controller.getRawAxis(Robot.oi.LEFT_TRIGGER_AXIS);
 //		double leftAxisX = controller.getRawAxis(Robot.oi.LEFT_AXIS_X);
 //		controller.getButton()
 
-		RobotMap.talonSRX4.set(ControlMode.PercentOutput, speed);
+		RobotMap.talonSRX5.set(ControlMode.PercentOutput, speed);
 //    	Timer.delay(0.005);
+		RobotMap.talonSRX6.set(ControlMode.PercentOutput, -speed);
+	}
+	
+	public void pushOutCube(double speed) {
+		RobotMap.talonSRX5.set(ControlMode.PercentOutput, -speed);
+//    	Timer.delay(0.005);
+		RobotMap.talonSRX6.set(ControlMode.PercentOutput, speed);
 	}
 	
 	public void stop() {
-		RobotMap.talonSRX4.set(ControlMode.PercentOutput, 0);
+		RobotMap.talonSRX5.set(ControlMode.PercentOutput, 0);
 //		RobotMap.blenderMotor.set(0);
 //    	Timer.delay(0.005);
+		RobotMap.talonSRX6.set(ControlMode.PercentOutput, 0);
 	}
 
 	@Override

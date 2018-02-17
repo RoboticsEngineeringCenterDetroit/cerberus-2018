@@ -95,21 +95,21 @@ public class OI {
 //    	Button dPadUp = new JoystickButton(manipulatorCont, manipulatorCont.getPOV(0));
 //    	Button dPadDown = new JoystickButton(manipulatorCont, manipulatorCont.getPOV(180));
    
-    	xButton.whileHeld(new Refuel(0.8));
-    	xButton.whenReleased(new Refuel(0));
+    	xButton.whileHeld(new CollectCube(0.8));
+    	xButton.whenReleased(new CollectCube(0));
     	
     	// No reverse refuel! New paddles should allow fuel to go only one direction!
-//    	bButton.whileHeld(new Refuel(-0.8));
-//    	bButton.whenReleased(new Refuel(0));
+    	bButton.whileHeld(new PlaceCube(0.8));
+    	bButton.whenReleased(new PlaceCube(0));
     	
-//    	aButton.whileHeld(new ClimbDown(0.5));
-//    	aButton.whenReleased(new ClimbDown(0));
+    	aButton.whileHeld(new DownLift(0.5));
+    	aButton.whenReleased(new DownLift(0));
     	
-    	yButton.whileHeld(new Climb(1.0));
-    	yButton.whenReleased(new Climb(0));
+    	yButton.whileHeld(new UpLift(0.5));
+    	yButton.whenReleased(new UpLift(0));
 
-    	lBumper.whileHeld(new Blend(1.0));
-    	lBumper.whenReleased(new Blend(0));
+//    	lBumper.whileHeld(new Blend(1.0));
+//    	lBumper.whenReleased(new Blend(0));
     	
     	aButton.whileHeld(new Blend(-1.0));
     	aButton.whenReleased(new Blend(0));

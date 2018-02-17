@@ -4,15 +4,15 @@ import org.usfirst.frc5577.GearsBot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Refuel extends Command {
+public class PlaceCube extends Command {
 	
 	private double speed = 0.8;
 
-	public Refuel() {
+	public PlaceCube() {
 		this(0.8);
 	}
 	
-	public Refuel(double speed) {
+	public PlaceCube(double speed) {
 		requires(Robot.intake);
 		this.speed = speed;
 	}
@@ -23,7 +23,7 @@ public class Refuel extends Command {
 
 	@Override
 	protected void execute() {
-		Robot.intake.intakeBall(speed);
+		Robot.intake.pushOutCube(speed);
 	}
 
 	@Override
