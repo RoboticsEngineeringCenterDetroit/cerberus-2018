@@ -47,9 +47,7 @@ public class RobotMap {
 
 	static void init() {
 
-		driveTrainRobotDrive.setSafetyEnabled(true);
-		driveTrainRobotDrive.setExpiration(0.1);
-		driveTrainRobotDrive.setMaxOutput(1.0);
+		
 
 
 //		driveTrainLeftMotor = new SpeedControllerGroup((SpeedController)victorSPX1, (SpeedController)victorSPX2);
@@ -69,6 +67,9 @@ public class RobotMap {
 		driveTrainRightMotor = new SpeedControllerGroup(victorSPX3, victorSPX4);
 
 		driveTrainRobotDrive = new DifferentialDrive(driveTrainLeftMotor, driveTrainRightMotor);
+		driveTrainRobotDrive.setSafetyEnabled(true);
+		driveTrainRobotDrive.setExpiration(0.1);
+		driveTrainRobotDrive.setMaxOutput(1.0);
 
 		servo = new Servo(2);
 

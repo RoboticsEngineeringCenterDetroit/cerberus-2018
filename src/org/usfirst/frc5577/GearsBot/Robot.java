@@ -21,8 +21,10 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.vision.VisionThread;
 
@@ -48,6 +50,7 @@ import vision.GripPipeline;
 public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
+    SendableChooser<CommandGroup> autoChooser;
 
     public static OI oi;
     
@@ -85,6 +88,12 @@ public class Robot extends IterativeRobot {
             gyro = new ADXRS453Gyro();
             pneumatics = new Pneumatics();
             lift = new Lift();
+            autoChooser = new SendableChooser<CommandGroup>();
+            autoChooser.addDefault("Default program", new AutonDriveStraight());
+            autoChooser.addObject("Experimental auto", new AutonDriveFromCenter());
+            SmartDashboard.putData("Autonomous mode chooser", autoChooser);
+            
+            
 
             // OI must be constructed after subsystems. If the OI creates Commands 
             //(which it very likely will), subsystems are not guaranteed to be 
@@ -147,7 +156,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() { 
-    	    autonomousCommand = new AutonomousCommand();
+    	    autonomousCommand = (Command)autoChooser.getSelected();
         // schedule the autonomous command (example)
         if (autonomousCommand != null) 
         	autonomousCommand.start();
@@ -160,7 +169,7 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
         
-        reportContours();
+//        reportContours();
     }
 
     public void teleopInit() {

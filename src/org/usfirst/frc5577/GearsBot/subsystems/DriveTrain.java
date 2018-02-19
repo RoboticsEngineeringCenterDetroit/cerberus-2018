@@ -37,11 +37,7 @@ public class DriveTrain extends Subsystem {
     double driveTrainSpeed = 1.0;
     
     public DriveTrain() {
-        leftWheelEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
-        leftWheelControl.enable();
-//        leftWheelControl.setSetpoint(distanceToTravel);
-        rightWheelEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
-        rightWheelControl.enable();
+        
     }
 
     
@@ -58,6 +54,10 @@ public class DriveTrain extends Subsystem {
     }*/
      
      public void driveTrainForwardWithDistance(double distance) {
+    	 leftWheelEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
+         leftWheelControl.enable();
+         rightWheelEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
+         rightWheelControl.enable();
     	 leftWheelControl.setSetpoint(distance);
     	 rightWheelControl.setSetpoint(distance);
     	 robotDrive.arcadeDrive(0.25, 0); 

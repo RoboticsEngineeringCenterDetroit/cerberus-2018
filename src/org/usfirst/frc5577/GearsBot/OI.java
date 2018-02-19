@@ -126,7 +126,7 @@ public class OI {
 
         SmartDashboard.putData("DriveWithJoysticks", new DriveWithJoysticks());
 
-        SmartDashboard.putData("Prepare To Pickup", new AutonomousCommand());
+        SmartDashboard.putData("Prepare To Pickup", new AutonDriveStraight());
 
         SmartDashboard.putData("Pickup", new DriveForward());
 

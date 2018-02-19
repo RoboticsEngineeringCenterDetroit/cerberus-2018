@@ -15,9 +15,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class AutonomousCommand extends CommandGroup {
+public class AutonDriveFromCenter extends CommandGroup {
     
-    public  AutonomousCommand() {
+    public  AutonDriveFromCenter() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -36,7 +36,7 @@ public class AutonomousCommand extends CommandGroup {
         // arm.
     	
         addSequential(new DriveForward(2));
-     	addSequential(new Turn(90));
+//     	addSequential(new Turn(90));
 //    	addSequential(new DriveForward(2));
 //    	addSequential(new BackUp(0.5, 0.5));
     }  
