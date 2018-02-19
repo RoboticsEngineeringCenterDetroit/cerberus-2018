@@ -31,8 +31,8 @@ public class DriveTrain extends Subsystem {
     Encoder rightWheelEncoder = RobotMap.rightWheelEncoder;
     PIDController leftWheelControl = new PIDController(0.1, 0, 0, leftWheelEncoder, leftMotor);
     PIDController rightWheelControl = new PIDController(0.1, 0, 0, rightWheelEncoder, rightMotor);
-    		
-    
+    SpeedControllerGroup leftmotor = RobotMap.driveTrainLeftMotor;
+    SpeedControllerGroup rightmotor = RobotMap.driveTrainRightMotor;
     //controls speed of chassis and the Value of the Decimal is a percentage ex. 0.5 = 50%
     double driveTrainSpeed = 1.0;
     

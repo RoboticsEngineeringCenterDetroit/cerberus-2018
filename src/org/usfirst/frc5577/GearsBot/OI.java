@@ -76,11 +76,13 @@ public class OI {
 //    	Button driveButtonB = new JoystickButton(controller, B_BUTTON);
 //    	Button xButton = new JoystickButton(controller, X_BUTTON);
 //    	Button yButton = new JoystickButton(controller, Y_BUTTON);
-//    	Button rBumper = new JoystickButton(controller, R_BUMPER);
+    	Button rBumperDriver = new JoystickButton(controller, R_BUMPER);
 //    	Button lBumper = new JoystickButton(controller, L_BUMPER);
 //    	Button dPadUp = new JoystickButton(controller, controller.getPOV(0));
 //    	Button dPadDown = new JoystickButton(controller, controller.getPOV(180));
     	Button backButton = new JoystickButton(controller, BACK_BUTTON);
+    	
+    	rBumperDriver.whenPressed(new ShiftGear());
     	
     	// Comment out the lines below for one controller setup
     	manipulatorCont = new Joystick(1);
@@ -88,7 +90,7 @@ public class OI {
     	Button bButton = new JoystickButton(manipulatorCont, B_BUTTON);
     	Button xButton = new JoystickButton(manipulatorCont, X_BUTTON);
     	Button yButton = new JoystickButton(manipulatorCont, Y_BUTTON);
-    	Button rBumper = new JoystickButton(manipulatorCont, R_BUMPER);	
+    	Button rBumperManipulator = new JoystickButton(manipulatorCont, R_BUMPER);	
     	Button lBumper = new JoystickButton(manipulatorCont, L_BUMPER);
 //    	Button backButton = new JoystickButton(manipulatorCont, BACK_BUTTON);
     	Button startButton = new JoystickButton(manipulatorCont, START_BUTTON);
@@ -102,19 +104,19 @@ public class OI {
     	bButton.whileHeld(new PlaceCube(0.8));
     	bButton.whenReleased(new PlaceCube(0));
     	
-    	aButton.whileHeld(new DownLift(0.5));
+    	aButton.whileHeld(new DownLift(-0.2));
     	aButton.whenReleased(new DownLift(0));
     	
-    	yButton.whileHeld(new UpLift(0.5));
+    	yButton.whileHeld(new UpLift(0.2));
     	yButton.whenReleased(new UpLift(0));
 
 //    	lBumper.whileHeld(new Blend(1.0));
 //    	lBumper.whenReleased(new Blend(0));
     	
-    	aButton.whileHeld(new Blend(-1.0));
-    	aButton.whenReleased(new Blend(0));
+//    	aButton.whileHeld(new Blend(-1.0));
+//    	aButton.whenReleased(new Blend(0));
     	
-    	rBumper.whenPressed(new ShiftGear());
+    	rBumperManipulator.whenPressed(new ShiftClaw());
     	
     	backButton.whenPressed(new BackUp(0.5 , 0.5));
     	startButton.whenPressed(new FlipShooterGate(0.4));

@@ -32,7 +32,7 @@ public class Lift extends Subsystem {
 		RobotMap.talonSRX8.config_kP(0, 0.0, 0);
 		RobotMap.talonSRX8.config_kI(0, 0.0, 0);
 		RobotMap.talonSRX8.config_kD(0, 0.0, 0);
-		RobotMap.talonSRX8.set(ControlMode.PercentOutput, 0);
+		RobotMap.talonSRX8.set(ControlMode.PercentOutput, -0);
 	}
 	
 	public void MoveLift(double speed) {
@@ -63,7 +63,7 @@ public class Lift extends Subsystem {
 		sb.append(targetSpeed);
 		
 		double targetSpeed1 = speed; // 6000 RPM target
-		RobotMap.talonSRX8.set(ControlMode.PercentOutput, targetSpeed1);
+		RobotMap.talonSRX8.set(ControlMode.PercentOutput, -targetSpeed1);
 		
 		sb.append("/terr"); 
 		sb.append(RobotMap.talonSRX8.getClosedLoopError(0)); 
