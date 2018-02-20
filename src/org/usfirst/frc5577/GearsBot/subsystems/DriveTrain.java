@@ -64,14 +64,14 @@ public class DriveTrain extends Subsystem {
      }
     
     public void driveTrainFoward(double speed) {
-    	Timer.delay(0.005);
+    	Timer.delay(0.01);
     	 leftWheelControl.setSetpoint(2);
     	 rightWheelControl.setSetpoint(2);
     	robotDrive.arcadeDrive(speed, 0); 
     }
     
     public void driveTrainBackward(double speed) {
-    	Timer.delay(0.005);
+    	Timer.delay(0.01);
     	robotDrive.arcadeDrive(-speed, 0); 
     }
 
@@ -79,7 +79,7 @@ public class DriveTrain extends Subsystem {
     
     public void turn(double rotateValue) {
     	robotDrive.arcadeDrive(0, rotateValue);
-    	Timer.delay(0.005);
+    	Timer.delay(0.01);
     }
     
     public void takeJoystickInputs(Joystick xBoxCont) {
@@ -92,14 +92,14 @@ public class DriveTrain extends Subsystem {
     	 */
 //    	robotDrive.arcadeDrive(xBoxCont);
     	
-    	robotDrive.arcadeDrive(-xBoxCont.getRawAxis(Robot.oi.LEFT_AXIS_Y)*driveTrainSpeed,
-    			xBoxCont.getRawAxis(Robot.oi.LEFT_AXIS_X)*driveTrainSpeed,
+    	robotDrive.arcadeDrive(xBoxCont.getRawAxis(Robot.oi.LEFT_AXIS_Y)*driveTrainSpeed,
+    			-xBoxCont.getRawAxis(Robot.oi.LEFT_AXIS_X)*driveTrainSpeed,
     			true);  
-    	Timer.delay(0.005);
+    	Timer.delay(0.01);
     }
     
     public void stop() {
-    	robotDrive.tankDrive(0, 0);
+    	robotDrive.arcadeDrive(0, 0);
     }
     
 }

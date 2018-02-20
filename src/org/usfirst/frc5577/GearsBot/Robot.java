@@ -78,8 +78,9 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
         RobotMap.init();
+        
         driveTrain = new DriveTrain();
-            shooter = new Shooter();
+        shooter = new Shooter();
             intake = new Intake();
             blender = new Blender();
             climber = new Climber();
