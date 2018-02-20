@@ -82,7 +82,7 @@ public class DriveTrain extends Subsystem {
     	Timer.delay(0.01);
     }
     
-    public void takeJoystickInputs(Joystick xBoxCont) {
+    public void takeJoystickInputs(Joystick xBoxController) {
     	robotDrive.setSafetyEnabled(true);
     	
     	/* The two options for driving are tank drive and arcade mode. 
@@ -92,8 +92,8 @@ public class DriveTrain extends Subsystem {
     	 */
 //    	robotDrive.arcadeDrive(xBoxCont);
     	
-    	robotDrive.arcadeDrive(xBoxCont.getRawAxis(Robot.oi.LEFT_AXIS_Y)*driveTrainSpeed,
-    			-xBoxCont.getRawAxis(Robot.oi.LEFT_AXIS_X)*driveTrainSpeed,
+    	robotDrive.arcadeDrive(xBoxController.getRawAxis(Robot.oi.LEFT_AXIS_Y)*driveTrainSpeed,
+    			-xBoxController.getRawAxis(Robot.oi.LEFT_AXIS_X)*driveTrainSpeed,
     			true);  
     	Timer.delay(0.01);
     }

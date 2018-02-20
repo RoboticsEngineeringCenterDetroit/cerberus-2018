@@ -81,26 +81,24 @@ public class Robot extends IterativeRobot {
         
         driveTrain = new DriveTrain();
         shooter = new Shooter();
-            intake = new Intake();
-            blender = new Blender();
-            climber = new Climber();
-            shooterGate = new ShooterGate();
-            imu = new ADIS16448_IMU();
-            gyro = new ADXRS453Gyro();
-            pneumatics = new Pneumatics();
-            lift = new Lift();
-            autoChooser = new SendableChooser<CommandGroup>();
-            autoChooser.addDefault("Default program", new AutonDriveStraight());
-            autoChooser.addObject("Experimental auto", new AutonDriveFromCenter());
-            SmartDashboard.putData("Autonomous mode chooser", autoChooser);
-            
-            
+        intake = new Intake();
+        blender = new Blender();
+        climber = new Climber();
+        shooterGate = new ShooterGate();
+        imu = new ADIS16448_IMU();
+        gyro = new ADXRS453Gyro();
+        pneumatics = new Pneumatics();
+        lift = new Lift();
+        autoChooser = new SendableChooser<CommandGroup>();
+        autoChooser.addDefault("Default program", new AutonDriveStraight());
+        autoChooser.addObject("Experimental auto", new AutonDriveFromCenter());
+        SmartDashboard.putData("Autonomous mode chooser", autoChooser);    
 
             // OI must be constructed after subsystems. If the OI creates Commands 
             //(which it very likely will), subsystems are not guaranteed to be 
             // constructed yet. Thus, their requires() statements may grab null 
             // pointers. Bad news. Don't move it.
-            oi = new OI();
+        oi = new OI();
             
             
 //            CameraServer.getInstance().startAutomaticCapture(0);
@@ -109,9 +107,9 @@ public class Robot extends IterativeRobot {
 //            new Thread(() -> {
 //            cameraServer1 = CameraServer.getInstance();
 //            cameraServer2 = CameraServer.getInstance();
-            UsbCamera camera0 = CameraServer.getInstance().startAutomaticCapture(0);
+        UsbCamera camera0 = CameraServer.getInstance().startAutomaticCapture(0);
 //            UsbCamera camera1 = CameraServer.getInstance().startAutomaticCapture(1);
-            camera0.setResolution(IMG_WIDTH, IMG_HEIGHT);
+        camera0.setResolution(IMG_WIDTH, IMG_HEIGHT);
         }
     
     

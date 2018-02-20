@@ -47,8 +47,8 @@ public class OI {
 	public final int RIGHT_AXIS_Y = 5;
 	public final int DPAD_AXIS = 6;
  
-    public Joystick controller = new Joystick(0); //This is for xbox controller one or player one
-    public Joystick manipulatorCont; //This is for xbox controller two or player two
+    public Joystick driverController = new Joystick(0); //This is for xbox controller one or player one
+    public Joystick manipulatorController; //This is for xbox controller two or player two
     
     public static OI instance;
     
@@ -60,7 +60,7 @@ public class OI {
     }
 
     public Joystick getJoystick() {
-        return controller;
+        return driverController;
     }
     
     // Comment this out for one controller setup
@@ -70,30 +70,30 @@ public class OI {
     
     public OI() {
     	
-    	controller = new Joystick(0);
+    	driverController = new Joystick(0);
     	// Comment out the lines below for two controller setup 
 //    	Button driveButtonA = new JoystickButton(controller, A_BUTTON);
 //    	Button driveButtonB = new JoystickButton(controller, B_BUTTON);
 //    	Button xButton = new JoystickButton(controller, X_BUTTON);
 //    	Button yButton = new JoystickButton(controller, Y_BUTTON);
-    	Button rBumperDriver = new JoystickButton(controller, R_BUMPER);
+    	Button rBumperDriver = new JoystickButton(driverController, R_BUMPER);
 //    	Button lBumper = new JoystickButton(controller, L_BUMPER);
 //    	Button dPadUp = new JoystickButton(controller, controller.getPOV(0));
 //    	Button dPadDown = new JoystickButton(controller, controller.getPOV(180));
-    	Button backButton = new JoystickButton(controller, BACK_BUTTON);
+//    	Button backButton = new JoystickButton(driveController, BACK_BUTTON);
     	
     	rBumperDriver.whenPressed(new ShiftGear());
     	
     	// Comment out the lines below for one controller setup
-    	manipulatorCont = new Joystick(1);
-    	Button aButton = new JoystickButton(manipulatorCont, A_BUTTON);
-    	Button bButton = new JoystickButton(manipulatorCont, B_BUTTON);
-    	Button xButton = new JoystickButton(manipulatorCont, X_BUTTON);
-    	Button yButton = new JoystickButton(manipulatorCont, Y_BUTTON);
-    	Button rBumperManipulator = new JoystickButton(manipulatorCont, R_BUMPER);	
-    	Button lBumper = new JoystickButton(manipulatorCont, L_BUMPER);
+    	manipulatorController = new Joystick(1);
+    	Button aButton = new JoystickButton(manipulatorController, A_BUTTON);
+    	Button bButton = new JoystickButton(manipulatorController, B_BUTTON);
+    	Button xButton = new JoystickButton(manipulatorController, X_BUTTON);
+    	Button yButton = new JoystickButton(manipulatorController, Y_BUTTON);
+    	Button rBumperManipulator = new JoystickButton(manipulatorController, R_BUMPER);	
+//    	Button lBumper = new JoystickButton(manipulatorController, L_BUMPER);
 //    	Button backButton = new JoystickButton(manipulatorCont, BACK_BUTTON);
-    	Button startButton = new JoystickButton(manipulatorCont, START_BUTTON);
+//    	Button startButton = new JoystickButton(manipulatorController, START_BUTTON);
 //    	Button dPadUp = new JoystickButton(manipulatorCont, manipulatorCont.getPOV(0));
 //    	Button dPadDown = new JoystickButton(manipulatorCont, manipulatorCont.getPOV(180));
    
@@ -118,18 +118,17 @@ public class OI {
     	
     	rBumperManipulator.whenPressed(new ShiftClaw());
     	
-    	backButton.whenPressed(new BackUp(0.5 , 0.5));
-    	startButton.whenPressed(new FlipShooterGate(0.4));
+//    	backButton.whenPressed(new BackUp(0.5 , 0.5));
+//    	startButton.whenPressed(new FlipShooterGate(0.4)); 
     	
 //    	driveButtonA.whileHeld(new ButtonDrive(.8));
 //    	driveButtonB.whileHeld(new ButtonDrive(-.8));
 
         SmartDashboard.putData("DriveWithJoysticks", new DriveWithJoysticks());
 
-        SmartDashboard.putData("Prepare To Pickup", new AutonDriveStraight());
+        SmartDashboard.putData("Practice Auton Driving Straight", new AutonDriveStraight());
 
-        SmartDashboard.putData("Pickup", new DriveForward());
-
+        SmartDashboard.putData("Practice Auton Driving from Center", new AutonDriveFromCenter());
     }
     
 }

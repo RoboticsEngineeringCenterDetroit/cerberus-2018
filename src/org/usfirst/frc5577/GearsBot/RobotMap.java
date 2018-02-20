@@ -46,12 +46,6 @@ public class RobotMap {
 	public static DoubleSolenoid clawSwitch;
 
 	static void init() {
-
-		
-
-
-//		driveTrainLeftMotor = new SpeedControllerGroup((SpeedController)victorSPX1, (SpeedController)victorSPX2);
-//		driveTrainRightMotor = new SpeedControllerGroup((SpeedController)victorSPX3, (SpeedController)victorSPX4);
 		
 		talonSRX5 = new TalonSRX(5);
 		talonSRX6 = new TalonSRX(6);
