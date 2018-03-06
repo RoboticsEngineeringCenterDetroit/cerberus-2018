@@ -62,7 +62,7 @@ public class DriveForward extends Command {
         System.out.println("Right wheel encoder count: " + RobotMap.rightWheelEncoder.get());
         System.out.println("Right wheel encoder distance traveled: " + RobotMap.rightWheelEncoder.getDistance());
     	
-    	if(RobotMap.rightWheelEncoder.getDistance()>=this.distanceInInches) {
+    	if(RobotMap.rightWheelEncoder.getDistance() >= this.distanceInInches) {
     		System.out.println("Finished the command!");
     		return true;
     	}

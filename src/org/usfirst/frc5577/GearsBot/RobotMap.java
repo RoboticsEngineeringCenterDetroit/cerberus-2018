@@ -51,7 +51,7 @@ public class RobotMap {
 		talonSRX6 = new TalonSRX(6);
 	    talonSRX7 = new TalonSRX(7);
 		talonSRX8 = new TalonSRX(8);
-		// talonSRX6 = new TalonSRX(6);
+		// talonSRX6 = new Tal onSRX(6);
 		victorSPX1 = new WPI_VictorSPX(1);
 		victorSPX2 = new WPI_VictorSPX(2);
 		victorSPX3 = new WPI_VictorSPX(3);

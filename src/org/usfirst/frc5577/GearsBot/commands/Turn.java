@@ -23,6 +23,9 @@ public class Turn extends Command {
 	
 	public Turn(int degrees) {
 		this.degrees = degrees;
+		if (degrees < 0) {
+			turnValue = turnValue * -1;
+		}
 	}
 
 	protected void execute() {
@@ -31,10 +34,10 @@ public class Turn extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	System.out.println(Robot.imu.getAngleZ());
+    	System.out.println(Robot.imu.getAngleY());
 //    	System.out.println(Robot.gyro.deltaTime);
     	System.out.println(isTimedOut());
-        return Math.abs(Robot.imu.getAngleZ()) >= Math.abs(degrees); 
+        return Math.abs(Robot.imu.getAngleY()) >= Math.abs(degrees); 
     }
 
     // Called once after isFinished returns true

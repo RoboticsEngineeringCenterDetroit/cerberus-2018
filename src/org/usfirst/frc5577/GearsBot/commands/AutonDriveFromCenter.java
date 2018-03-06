@@ -10,6 +10,7 @@
 
 
 package org.usfirst.frc5577.GearsBot.commands;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -17,6 +18,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class AutonDriveFromCenter extends CommandGroup {
     
+	private String gameData;
+	
     public  AutonDriveFromCenter() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
@@ -35,9 +38,25 @@ public class AutonDriveFromCenter extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-        addSequential(new DriveForward(2));
-    	addSequential(new Turn(90));
-    	addSequential(new DriveForward(2));
+    	gameData = DriverStation.getInstance().getGameSpecificMessage();
+
+    	// Robot is in center of starting zone
+    	if(gameData.charAt(0) == 'L'){ 
+    	addSequential(new DriveForward(5));
+        addSequential(new Turn(-90));
+       	addSequential(new DriveForward(6));
+        addSequential(new Turn(90));
+        addSequential(new DriveForward(3));
+        //TODO Drop Cube
+        } else {
+        	addSequential(new DriveForward(5));
+            addSequential(new Turn(90));
+           	addSequential(new DriveForward(4));
+            addSequential(new Turn(-90));
+            addSequential(new DriveForward(3));
+            //TODO Drop Cube
+    	}
+        
 //    	addSequential(new BackUp(0.5, 0.5));
     }  
     

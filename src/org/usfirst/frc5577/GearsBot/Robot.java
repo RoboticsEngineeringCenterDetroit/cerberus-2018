@@ -91,7 +91,9 @@ public class Robot extends IterativeRobot {
         lift = new Lift();
         autoChooser = new SendableChooser<CommandGroup>();
         autoChooser.addDefault("Default program", new AutonDriveStraight());
-        autoChooser.addObject("Experimental auto", new AutonDriveFromCenter());
+        autoChooser.addObject("Left", new AutonDriveFromLeft());
+        autoChooser.addObject("Center", new AutonDriveFromCenter());
+        autoChooser.addObject("Right", new AutonDriveFromRight());
         SmartDashboard.putData("Autonomous mode chooser", autoChooser);    
 
             // OI must be constructed after subsystems. If the OI creates Commands 
@@ -107,9 +109,11 @@ public class Robot extends IterativeRobot {
 //            new Thread(() -> {
 //            cameraServer1 = CameraServer.getInstance();
 //            cameraServer2 = CameraServer.getInstance();
-        UsbCamera camera0 = CameraServer.getInstance().startAutomaticCapture(0);
+        
+        // TODO: TODO: TODO: Please uncomment for seeing the camera view.
+//        UsbCamera camera0 = CameraServer.getInstance().startAutomaticCapture(0);
 //            UsbCamera camera1 = CameraServer.getInstance().startAutomaticCapture(1);
-        camera0.setResolution(IMG_WIDTH, IMG_HEIGHT);
+//        camera0.setResolution(IMG_WIDTH, IMG_HEIGHT);
         }
     
     
