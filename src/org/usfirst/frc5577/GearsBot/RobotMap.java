@@ -32,6 +32,7 @@ public class RobotMap {
 	public static TalonSRX talonSRX6;
 	public static TalonSRX talonSRX7;
 	public static TalonSRX talonSRX8;
+	public static TalonSRX talonSRX9;
 	public static WPI_VictorSPX victorSPX1;
 	public static WPI_VictorSPX victorSPX2;
 	public static WPI_VictorSPX victorSPX3;
@@ -47,15 +48,15 @@ public class RobotMap {
 
 	static void init() {
 		
-		talonSRX5 = new TalonSRX(5);
-		talonSRX6 = new TalonSRX(6);
-	    talonSRX7 = new TalonSRX(7);
-		talonSRX8 = new TalonSRX(8);
-		// talonSRX6 = new Tal onSRX(6);
 		victorSPX1 = new WPI_VictorSPX(1);
 		victorSPX2 = new WPI_VictorSPX(2);
 		victorSPX3 = new WPI_VictorSPX(3);
 		victorSPX4 = new WPI_VictorSPX(4);
+		talonSRX5 = new TalonSRX(5);
+		talonSRX6 = new TalonSRX(6);
+	    talonSRX7 = new TalonSRX(7);
+		talonSRX8 = new TalonSRX(8);
+		talonSRX9 = new TalonSRX(9);
 
 		driveTrainLeftMotor = new SpeedControllerGroup(victorSPX1, victorSPX2);
 		driveTrainRightMotor = new SpeedControllerGroup(victorSPX3, victorSPX4);

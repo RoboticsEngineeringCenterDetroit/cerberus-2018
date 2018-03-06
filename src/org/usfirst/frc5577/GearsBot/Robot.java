@@ -65,6 +65,7 @@ public class Robot extends IterativeRobot {
     public static ADXRS453Gyro gyro;
     public static Pneumatics pneumatics;
     public static Lift lift;
+    public static Hook hook;
     
     // Camera and Vision
     public static CameraServer cameraServer1;
@@ -89,6 +90,7 @@ public class Robot extends IterativeRobot {
         gyro = new ADXRS453Gyro();
         pneumatics = new Pneumatics();
         lift = new Lift();
+        hook = new Hook();
         autoChooser = new SendableChooser<CommandGroup>();
         autoChooser.addDefault("Default program", new AutonDriveStraight());
         autoChooser.addObject("Left", new AutonDriveFromLeft());
