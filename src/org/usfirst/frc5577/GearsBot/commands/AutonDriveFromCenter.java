@@ -41,13 +41,13 @@ public class AutonDriveFromCenter extends CommandGroup {
     	gameData = DriverStation.getInstance().getGameSpecificMessage();
 
     	// Robot is in center of starting zone
-    	if(gameData.charAt(0) == 'L'){ 
-    	addSequential(new DriveForward(5));
-        addSequential(new Turn(-90));
-       	addSequential(new DriveForward(6));
-        addSequential(new Turn(90));
-        addSequential(new DriveForward(3));
-        //TODO Drop Cube
+    	if(gameData.charAt(0) == 'L') { 
+    		addSequential(new DriveForward(5));
+    		addSequential(new Turn(-90));
+    		addSequential(new DriveForward(6));
+    		addSequential(new Turn(90));
+    		addSequential(new DriveForward(3));
+    		//TODO Drop Cube
         } else {
         	addSequential(new DriveForward(5));
             addSequential(new Turn(90));

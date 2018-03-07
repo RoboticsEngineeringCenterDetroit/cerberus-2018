@@ -9,14 +9,13 @@ public class AutonDriveFromRight extends CommandGroup {
 	
 	public AutonDriveFromRight() {
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
-		if(gameData.charAt(0) == 'R'){ 
-	addSequential(new DriveForward(10));
- 	addSequential(new Turn(-90));
- 	addSequential(new DriveForward(.5));
- 	//TODo Drop Cube
-		}else {
-	addSequential(new DriveForward(10)); 		
+		if (gameData.charAt(0) == 'R') { 
+			addSequential(new DriveForward(10));
+			addSequential(new Turn(-90));
+			addSequential(new DriveForward(.5));
+			//TODo Drop Cube
+			} else {
+				addSequential(new DriveForward(10)); 		
+				}
 		}
- }
-
 }
