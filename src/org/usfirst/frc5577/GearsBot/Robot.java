@@ -198,18 +198,6 @@ public class Robot extends IterativeRobot {
 //        System.out.println("Right wheel encoder distance traveled: " + RobotMap.rightWheelEncoder.getDistance());
     }
 
-
-	private void reportContours() {
-//		double centerX;
-//		int numberOfContours;
-//        synchronized(imgLock) {
-//        	centerX = this.centerX;
-//        	numberOfContours = this.numberOfContours;
-//        }
-//        System.out.println("How many countours? " + numberOfContours);
-//        System.out.println("Where is centerX? " + centerX);
-	}
-
     /**
      * This function is called periodically during test mode
      */
