@@ -124,11 +124,13 @@ public class OI {
 //    	driveButtonA.whileHeld(new ButtonDrive(.8));
 //    	driveButtonB.whileHeld(new ButtonDrive(-.8));
 
-        SmartDashboard.putData("DriveWithJoysticks", new DriveWithJoysticks());
+//        SmartDashboard.putData("DriveWithJoysticks", new DriveWithJoysticks());
 
         SmartDashboard.putData("Practice Auton Driving Straight", new AutonDriveStraight());
-
+        SmartDashboard.putData("Practice Auton Turning", new AutonTurn());
+        SmartDashboard.putData("Practice Auton Driving from Left", new AutonDriveFromLeft());
         SmartDashboard.putData("Practice Auton Driving from Center", new AutonDriveFromCenter());
+        SmartDashboard.putData("Practice Auton Driving from Right", new AutonDriveFromRight());
     }
     
 }

@@ -36,9 +36,6 @@ public class AutonDriveStraight extends CommandGroup {
         // arm.
     	
         addSequential(new DriveForward(2));
-//     	addSequential(new Turn(90));
-//    	addSequential(new DriveForward(2));
-//    	addSequential(new BackUp(0.5, 0.5));
     }  
     
 }

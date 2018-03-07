@@ -47,14 +47,14 @@ public class AutonDriveFromCenter extends CommandGroup {
     		addSequential(new DriveForward(6));
     		addSequential(new Turn(90));
     		addSequential(new DriveForward(3));
-    		//TODO Drop Cube
+    		//TODO Drop Cube in switch
         } else {
         	addSequential(new DriveForward(5));
             addSequential(new Turn(90));
            	addSequential(new DriveForward(4));
             addSequential(new Turn(-90));
             addSequential(new DriveForward(3));
-            //TODO Drop Cube
+            //TODO Drop Cube in switch
     	}
         
 //    	addSequential(new BackUp(0.5, 0.5));
