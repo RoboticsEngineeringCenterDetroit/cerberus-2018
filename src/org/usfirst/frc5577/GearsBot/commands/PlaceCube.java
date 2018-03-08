@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class PlaceCube extends Command {
 	
 	private double speed = 0.8;
+	private double time = 0;
 
 	public PlaceCube() {
 		this(0.8);
@@ -16,9 +17,17 @@ public class PlaceCube extends Command {
 		requires(Robot.intake);
 		this.speed = speed;
 	}
+	
+	public PlaceCube(double speed, double time) {
+		this(speed);
+		this.time = time;
+	}
 
 	@Override
 	protected void initialize() {
+		if (time > 0) {
+			setTimeout(time);
+		}
 	}
 
 	@Override
@@ -28,7 +37,7 @@ public class PlaceCube extends Command {
 
 	@Override
 	protected boolean isFinished() {
-		return false;
+		return isTimedOut();
 	}
 
 }
