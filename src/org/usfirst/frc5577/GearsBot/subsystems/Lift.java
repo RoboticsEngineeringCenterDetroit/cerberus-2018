@@ -71,10 +71,10 @@ public class Lift extends Subsystem {
 		sb.append(targetSpeed1);
 	
 		
-		if(++loops >= 10) { 
-			loops = 0; 
-			System.out.println(sb.toString()); 
-		} 
+//		if(++loops >= 10) { 
+//			loops = 0; 
+//			System.out.println(sb.toString()); 
+//		} 
 		
 		sb.setLength(0);
 		

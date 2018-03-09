@@ -8,7 +8,8 @@ public class AutonDriveFromLeft extends CommandGroup {
 	
 	public AutonDriveFromLeft() {
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
-		if(gameData.charAt(0) == 'L'){ // The switch is on the left side
+		if (gameData != null && gameData.length() > 0) {
+		if (gameData.charAt(0) == 'L'){ // The switch is on the left side
 			addSequential(new DriveForward(10));
 			addSequential(new Turn(90));
 			addSequential(new DriveForward(.5));
@@ -23,4 +24,5 @@ public class AutonDriveFromLeft extends CommandGroup {
 			addSequential(new DriveForward(10));
 			}
 		}
+	}
 }

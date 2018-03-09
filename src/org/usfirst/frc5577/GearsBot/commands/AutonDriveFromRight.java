@@ -9,6 +9,7 @@ public class AutonDriveFromRight extends CommandGroup {
 	
 	public AutonDriveFromRight() {
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		if (gameData != null && gameData.length() > 0) {
 		if (gameData.charAt(0) == 'R') { // The switch is on the right
 			addSequential(new DriveForward(10));
 			addSequential(new Turn(-90));
@@ -23,4 +24,5 @@ public class AutonDriveFromRight extends CommandGroup {
 					addSequential(new DriveForward(10));
 				}
 		}
+	}
 }

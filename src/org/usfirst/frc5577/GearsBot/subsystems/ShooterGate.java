@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class ShooterGate extends Subsystem {
-	Servo shooterGateServo = RobotMap.servo;
+//	Servo shooterGateServo = RobotMap.servo;
 
 	@Override
 	protected void initDefaultCommand() {
@@ -15,11 +15,12 @@ public class ShooterGate extends Subsystem {
 	}
 	
 	public void setPosition(double position) {
-		shooterGateServo.set(position);
+//		shooterGateServo.set(position);
 	}
 	
 	public double getPosition() {
-		 return shooterGateServo.get();
+		return 0;
+//		 return shooterGateServo.get();
 	}
 	
 //	public void spin(double speed) {
@@ -27,7 +28,7 @@ public class ShooterGate extends Subsystem {
 //	}
 //	
 	public void stop() {
-		shooterGateServo.set(0);
+//		shooterGateServo.set(0);
 	}
 	
 }

@@ -39,7 +39,7 @@ public class RobotMap {
 	public static WPI_VictorSPX victorSPX4;
 //	public static TalonSRX talonSRX6;
 
-	public static Servo servo;
+//	public static Servo servo;
 	public static Compressor compressor;
 	public static DoubleSolenoid driveTrainSwitch;
 	public static Encoder leftWheelEncoder;
@@ -66,7 +66,7 @@ public class RobotMap {
 		driveTrainRobotDrive.setExpiration(0.1);
 		driveTrainRobotDrive.setMaxOutput(1.0);
 
-		servo = new Servo(2);
+//		servo = new Servo(2);
 
 		compressor = new Compressor();
 		compressor.setClosedLoopControl(true);

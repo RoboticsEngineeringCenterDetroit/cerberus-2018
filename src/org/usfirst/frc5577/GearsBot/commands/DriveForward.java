@@ -54,13 +54,13 @@ public class DriveForward extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 //    	Robot.driveTrain.driveTrainForwardWithDistance(distance);
-    	Robot.driveTrain.driveTrainFoward(speed);
+    	Robot.driveTrain.driveTrainFoward(-speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         System.out.println("Right wheel encoder count: " + RobotMap.rightWheelEncoder.get());
-        System.out.println("Right wheel encoder distance traveled: " + RobotMap.rightWheelEncoder.getDistance());
+        System.out.println("Right wheel encoder distance traveled: " + RobotMap.rightWheelEncoder.getDistance() / 12);
     	
     	if(RobotMap.rightWheelEncoder.getDistance() >= this.distanceInInches) {
     		System.out.println("Finished the command!");

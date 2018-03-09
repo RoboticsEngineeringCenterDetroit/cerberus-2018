@@ -24,6 +24,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.vision.VisionThread;
@@ -90,13 +91,7 @@ public class Robot extends IterativeRobot {
         gyro = new ADXRS453Gyro();
         pneumatics = new Pneumatics();
         lift = new Lift();
-        hook = new Hook();
-        autoChooser = new SendableChooser<CommandGroup>();
-        autoChooser.addDefault("Default program", new AutonDriveStraight());
-        autoChooser.addObject("Left", new AutonDriveFromLeft());
-        autoChooser.addObject("Center", new AutonDriveFromCenter());
-        autoChooser.addObject("Right", new AutonDriveFromRight());
-        SmartDashboard.putData("Autonomous mode chooser", autoChooser);    
+        hook = new Hook();    
 
             // OI must be constructed after subsystems. If the OI creates Commands 
             //(which it very likely will), subsystems are not guaranteed to be 
@@ -108,44 +103,44 @@ public class Robot extends IterativeRobot {
 //            CameraServer.getInstance().startAutomaticCapture(0);
             
             // Set up camera
-//            new Thread(() -> {
+//      h      new Thread(() -> {
 //            cameraServer1 = CameraServer.getInstance();
 //            cameraServer2 = CameraServer.getInstance();
         
         // TODO: TODO: TODO: Please uncomment for seeing the camera view.
-//        UsbCamera camera0 = CameraServer.getInstance().startAutomaticCapture(0);
+        UsbCamera camera0 = CameraServer.getInstance().startAutomaticCapture(0);
 //            UsbCamera camera1 = CameraServer.getInstance().startAutomaticCapture(1);
-//        camera0.setResolution(IMG_WIDTH, IMG_HEIGHT);
+        camera0.setResolution(IMG_WIDTH, IMG_HEIGHT);
         }
     
     
     //************************************************************************************************************************************************************************
     //A structure to hold measurements of a pa;rticle
-	public class ParticleReport implements Comparator<ParticleReport>, Comparable<ParticleReport>{
-		double PercentAreaToImageArea;
-		double Area;
-		double ConvexHullArea;
-		double BoundingRectLeft;
-		double BoundingRectTop;
-		double BoundingRectRight;
-		double BoundingRectBottom;
-		
-		public int compareTo(ParticleReport r)
-		{
-			return (int)(r.Area - this.Area);
-		}
-		
-		public int compare(ParticleReport r1, ParticleReport r2)
-		{
-			return (int)(r1.Area - r2.Area);
-		}
-	};
+//	public class ParticleReport implements Comparator<ParticleReport>, Comparable<ParticleReport>{
+//		double PercentAreaToImageArea;
+//		double Area;
+//		double ConvexHullArea;
+//		double BoundingRectLeft;
+//		double BoundingRectTop;
+//		double BoundingRectRight;
+//		double BoundingRectBottom;
+//		
+//		public int compareTo(ParticleReport r)
+//		{
+//			return (int)(r.Area - this.Area);
+//		}
+//		
+//		public int compare(ParticleReport r1, ParticleReport r2)
+//		{
+//			return (int)(r1.Area - r2.Area);
+//		}
+//	};
 
 	
  //************************************************************************************************************************************************************************
     
     public void autonomous() {
-    	
+    
 	}
 
     /**
@@ -161,11 +156,17 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() { 
-    	    autonomousCommand = (Command)autoChooser.getSelected();
-        // schedule the autonomous command (example)
-        if (autonomousCommand != null) 
-        	autonomousCommand.start();
+        autoChooser = new SendableChooser<CommandGroup>();
+        autoChooser.addDefault("Default program", new AutonDriveStraight());
+        autoChooser.addObject("Left", new AutonDriveFromLeft());
+        autoChooser.addObject("Center", new AutonDriveFromCenter());
+        autoChooser.addObject("Right", new AutonDriveFromRight());
+        SmartDashboard.putData("Autonomous mode chooser", autoChooser);
         
+	    autonomousCommand = (Command) autoChooser.getSelected();
+    // schedule the autonomous command (example)
+    if (autonomousCommand != null) 
+    	autonomousCommand.start();
     }
 
     /**
@@ -173,9 +174,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-        
-//        reportContours();
-    }
+        }
 
     public void teleopInit() {
         // This makes sure that the autonomous stops running when
