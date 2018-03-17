@@ -63,11 +63,6 @@ public class OI {
         return driverController;
     }
     
-    // Comment this out for one controller setup
-//    public Joystick getManipulatorJoystick() {
-//    	return manipulatorCont;
-//    }
-    
     public OI() {
     	
     	driverController = new Joystick(0);
@@ -90,7 +85,7 @@ public class OI {
     	Button bButton = new JoystickButton(manipulatorController, B_BUTTON);
     	Button xButton = new JoystickButton(manipulatorController, X_BUTTON);
     	Button yButton = new JoystickButton(manipulatorController, Y_BUTTON);
-    	Button rBumperManipulator = new JoystickButton(manipulatorController, R_BUMPER);	
+//    	Button rBumperManipulator = new JoystickButton(manipulatorController, R_BUMPER);	
     	Button lBumperManipulator = new JoystickButton(manipulatorController, L_BUMPER);
 //    	Button backButton = new JoystickButton(manipulatorCont, BACK_BUTTON);
 //    	Button startButton = new JoystickButton(manipulatorController, START_BUTTON);

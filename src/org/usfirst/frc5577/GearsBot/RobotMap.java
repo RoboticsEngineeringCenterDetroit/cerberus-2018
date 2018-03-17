@@ -13,8 +13,6 @@ package org.usfirst.frc5577.GearsBot;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
-import org.usfirst.frc5577.GearsBot.subsystems.WheelEncoder;
-
 import com.ctre.phoenix.motorcontrol.can.*;
 
 /**
@@ -37,9 +35,7 @@ public class RobotMap {
 	public static WPI_VictorSPX victorSPX2;
 	public static WPI_VictorSPX victorSPX3;
 	public static WPI_VictorSPX victorSPX4;
-//	public static TalonSRX talonSRX6;
 
-//	public static Servo servo;
 	public static Compressor compressor;
 	public static DoubleSolenoid driveTrainSwitch;
 	public static Encoder leftWheelEncoder;
@@ -66,8 +62,6 @@ public class RobotMap {
 		driveTrainRobotDrive.setExpiration(0.1);
 		driveTrainRobotDrive.setMaxOutput(1.0);
 
-//		servo = new Servo(2);
-
 		compressor = new Compressor();
 		compressor.setClosedLoopControl(true);
 
@@ -77,12 +71,10 @@ public class RobotMap {
 	    clawSwitch.set(DoubleSolenoid.Value.kOff);
 
 		leftWheelEncoder = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
-		// leftWheelEncoder = new Encoder(2, 3);
 		leftWheelEncoder.setDistancePerPulse(.147262);
 		leftWheelEncoder.setSamplesToAverage(10);
 		leftWheelEncoder.reset();
 		rightWheelEncoder = new Encoder(0, 1, true, Encoder.EncodingType.k4X);
-		// rightWheelEncoder = new Encoder(0, 1);
 		rightWheelEncoder.setDistancePerPulse(.147262);
 		rightWheelEncoder.setSamplesToAverage(10);
 		rightWheelEncoder.reset();

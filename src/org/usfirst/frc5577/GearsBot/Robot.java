@@ -57,11 +57,8 @@ public class Robot extends IterativeRobot {
     
     // Subsystems and Hardware
     public static DriveTrain driveTrain;
-    public static Blender blender;
     public static Intake intake;
-    public static Shooter shooter;
     public static Climber climber;
-    public static ShooterGate shooterGate;
     public static ADIS16448_IMU imu;
     public static ADXRS453Gyro gyro;
     public static Pneumatics pneumatics;
@@ -82,11 +79,8 @@ public class Robot extends IterativeRobot {
         RobotMap.init();
         
         driveTrain = new DriveTrain();
-        shooter = new Shooter();
         intake = new Intake();
-        blender = new Blender();
         climber = new Climber();
-        shooterGate = new ShooterGate();
         imu = new ADIS16448_IMU();
         gyro = new ADXRS453Gyro();
         pneumatics = new Pneumatics();
@@ -98,43 +92,10 @@ public class Robot extends IterativeRobot {
             // constructed yet. Thus, their requires() statements may grab null 
             // pointers. Bad news. Don't move it.
         oi = new OI();
-            
-            
-//            CameraServer.getInstance().startAutomaticCapture(0);
-            
-            // Set up camera
-//      h      new Thread(() -> {
-//            cameraServer1 = CameraServer.getInstance();
-//            cameraServer2 = CameraServer.getInstance();
-        
-        // TODO: TODO: TODO: Please uncomment for seeing the camera view.
+
         UsbCamera camera0 = CameraServer.getInstance().startAutomaticCapture(0);
-//            UsbCamera camera1 = CameraServer.getInstance().startAutomaticCapture(1);
         camera0.setResolution(IMG_WIDTH, IMG_HEIGHT);
         }
-    
-    
-    //************************************************************************************************************************************************************************
-    //A structure to hold measurements of a pa;rticle
-//	public class ParticleReport implements Comparator<ParticleReport>, Comparable<ParticleReport>{
-//		double PercentAreaToImageArea;
-//		double Area;
-//		double ConvexHullArea;
-//		double BoundingRectLeft;
-//		double BoundingRectTop;
-//		double BoundingRectRight;
-//		double BoundingRectBottom;
-//		
-//		public int compareTo(ParticleReport r)
-//		{
-//			return (int)(r.Area - this.Area);
-//		}
-//		
-//		public int compare(ParticleReport r1, ParticleReport r2)
-//		{
-//			return (int)(r1.Area - r2.Area);
-//		}
-//	};
 
 	
  //************************************************************************************************************************************************************************
@@ -172,7 +133,6 @@ public class Robot extends IterativeRobot {
 	    if (autonomousCommand != null) {
 	    	autonomousCommand.start();
 	    }
-	    	
     }
 
     /**
