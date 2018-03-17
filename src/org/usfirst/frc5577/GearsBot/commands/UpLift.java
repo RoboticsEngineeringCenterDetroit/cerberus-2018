@@ -7,11 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 public class UpLift extends Command {
 	
 	private double speed = 0;
-	private double time = 0;
+	private double time = 3;
 	
 	public UpLift(double speed) {
 		requires(Robot.lift);
 		this.speed = speed;
+		this.time = 0;
 	}
 	
 	public UpLift(double speed, double time) {
@@ -21,6 +22,7 @@ public class UpLift extends Command {
 
 	@Override
 	protected void initialize() {
+		System.out.println("This is the timeout time: " + time);
 		if (time > 0) {
 			setTimeout(time);
 		}
@@ -35,6 +37,12 @@ public class UpLift extends Command {
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub
 		return isTimedOut();
+	}
+	
+	@Override
+	protected void end() {
+		System.out.println("UpLift command has ended!");
+		Robot.lift.MoveLift(0);
 	}
 
 }

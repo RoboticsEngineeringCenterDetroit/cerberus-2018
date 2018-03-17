@@ -155,6 +155,11 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
     }
 
+    /** 
+     * This function is called only once when autonomous begins.
+     * Creates a SendableChooser Object that allows selection of Autonomous code.
+     * Adds Autonomous options to the SmartDashboard.
+     */
     public void autonomousInit() { 
         autoChooser = new SendableChooser<CommandGroup>();
         autoChooser.addDefault("Default program", new AutonDriveStraight());
@@ -164,9 +169,10 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData("Autonomous mode chooser", autoChooser);
         
 	    autonomousCommand = (Command) autoChooser.getSelected();
-    // schedule the autonomous command (example)
-    if (autonomousCommand != null) 
-    	autonomousCommand.start();
+	    if (autonomousCommand != null) {
+	    	autonomousCommand.start();
+	    }
+	    	
     }
 
     /**
@@ -176,6 +182,9 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         }
 
+    /**
+     * This fucntion is called only once when teleop begins
+     */
     public void teleopInit() {
         // This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 

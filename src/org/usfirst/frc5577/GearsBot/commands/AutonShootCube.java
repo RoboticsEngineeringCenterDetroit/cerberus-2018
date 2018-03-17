@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutonShootCube extends CommandGroup {
 	public AutonShootCube () {
-		addParallel (new ShiftClaw());
-		addSequential (new PlaceCube (0.8, 0.5));
+		addParallel(new ShiftClaw());
+//		addSequential(new PlaceCube(0.8, 0.5));
 	}
 }

@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class PlaceCube extends Command {
 	
-	private double speed = 0.8;
+	private double speed = 0.7;
 	private double time = 0;
 
 	public PlaceCube() {

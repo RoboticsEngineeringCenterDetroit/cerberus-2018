@@ -91,7 +91,7 @@ public class OI {
     	Button xButton = new JoystickButton(manipulatorController, X_BUTTON);
     	Button yButton = new JoystickButton(manipulatorController, Y_BUTTON);
     	Button rBumperManipulator = new JoystickButton(manipulatorController, R_BUMPER);	
-//    	Button lBumper = new JoystickButton(manipulatorController, L_BUMPER);
+    	Button lBumperManipulator = new JoystickButton(manipulatorController, L_BUMPER);
 //    	Button backButton = new JoystickButton(manipulatorCont, BACK_BUTTON);
 //    	Button startButton = new JoystickButton(manipulatorController, START_BUTTON);
 //    	Button dPadUp = new JoystickButton(manipulatorCont, manipulatorCont.getPOV(0));
@@ -101,13 +101,13 @@ public class OI {
     	xButton.whenReleased(new CollectCube(0));
     	
     	// No reverse refuel! New paddles should allow fuel to go only one direction!
-    	bButton.whileHeld(new PlaceCube(0.8));
+    	bButton.whileHeld(new PlaceCube(0.7));
     	bButton.whenReleased(new PlaceCube(0));
     	
-    	aButton.whileHeld(new DownLift(-0.4));
+    	aButton.whileHeld(new DownLift(-0.6));
     	aButton.whenReleased(new DownLift(0));
     	
-    	yButton.whileHeld(new UpLift(0.4));
+    	yButton.whileHeld(new UpLift(0.75));
     	yButton.whenReleased(new UpLift(0));
 
 //    	lBumper.whileHeld(new Blend(1.0));
@@ -116,7 +116,7 @@ public class OI {
 //    	aButton.whileHeld(new Blend(-1.0));
 //    	aButton.whenReleased(new Blend(0));
     	
-    	rBumperManipulator.whenPressed(new ShiftClaw());
+    	lBumperManipulator.whenPressed(new ShiftClaw());
     	
 //    	backButton.whenPressed(new BackUp(0.5 , 0.5));
 //    	startButton.whenPressed(new FlipShooterGate(0.4)); 

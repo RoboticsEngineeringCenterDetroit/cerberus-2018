@@ -83,7 +83,7 @@ public class RobotMap {
 		leftWheelEncoder.reset();
 		rightWheelEncoder = new Encoder(0, 1, true, Encoder.EncodingType.k4X);
 		// rightWheelEncoder = new Encoder(0, 1);
-		rightWheelEncoder.setDistancePerPulse(.147);
+		rightWheelEncoder.setDistancePerPulse(.147262);
 		rightWheelEncoder.setSamplesToAverage(10);
 		rightWheelEncoder.reset();
 	}

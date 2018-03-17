@@ -78,7 +78,7 @@ public class DriveTrain extends Subsystem {
     
     
     public void turn(double rotateValue) {
-    	robotDrive.arcadeDrive(0, rotateValue);
+    	robotDrive.arcadeDrive(0.2, rotateValue);
     	Timer.delay(0.01);
     }
     

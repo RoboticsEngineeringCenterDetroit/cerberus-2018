@@ -23,15 +23,19 @@ public class Turn extends Command {
 			turnValue = turnValue * -1;
 		}
 	}
+	
+	protected void initialize() {
+		Robot.imu.reset();
+	}
 
 	protected void execute() {
+		System.out.println("The robot is at this angle from starting bearing in degrees: " + Robot.imu.getAngleY() * 360/Math.PI);
     	Robot.driveTrain.turn(turnValue);
     }
 
     protected boolean isFinished() {
-    	System.out.println(Robot.imu.getAngleY());
     	System.out.println(isTimedOut());
-        return Math.abs(Robot.imu.getAngleY()) >= Math.abs(degrees); 
+        return Math.abs(Robot.imu.getAngleY() * 360/Math.PI) >= Math.abs(degrees); 
     }
 
     protected void end() {

@@ -31,7 +31,7 @@ public class DriveForward extends Command {
 //    public DriveForward(double speed) {
 //    	this();
 //    	this.speed = speed;
-//    }
+ //    }
     
     public DriveForward(double distanceInFeet) {
     	this();
@@ -73,7 +73,9 @@ public class DriveForward extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	//Robot.climbingArm.disable();
-    	Robot.driveTrain.stop(); 
+    	Robot.driveTrain.stop();
+    	RobotMap.leftWheelEncoder.reset();
+    	RobotMap.rightWheelEncoder.reset();
     }
 
     // Called when another command which requires one or more of the same
