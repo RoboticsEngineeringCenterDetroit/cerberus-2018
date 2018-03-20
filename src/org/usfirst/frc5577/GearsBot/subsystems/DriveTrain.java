@@ -67,18 +67,18 @@ public class DriveTrain extends Subsystem {
     	Timer.delay(0.01);
     	 leftWheelControl.setSetpoint(2);
     	 rightWheelControl.setSetpoint(2);
-    	robotDrive.arcadeDrive(speed, 0); 
+    	robotDrive.arcadeDrive(-speed, 0); 
     }
     
     public void driveTrainBackward(double speed) {
     	Timer.delay(0.01);
-    	robotDrive.arcadeDrive(-speed, 0); 
+    	robotDrive.arcadeDrive(speed, 0); 
     }
 
     
     
     public void turn(double rotateValue) {
-    	robotDrive.arcadeDrive(0.2, rotateValue);
+    	robotDrive.arcadeDrive(-0.2, rotateValue);
     	Timer.delay(0.01);
     }
     
@@ -92,7 +92,7 @@ public class DriveTrain extends Subsystem {
     	 */
 //    	robotDrive.arcadeDrive(xBoxCont);
     	
-    	robotDrive.arcadeDrive(xBoxController.getRawAxis(Robot.oi.LEFT_AXIS_Y)*driveTrainSpeed,
+    	robotDrive.arcadeDrive(-xBoxController.getRawAxis(Robot.oi.LEFT_AXIS_Y)*driveTrainSpeed,
     			-xBoxController.getRawAxis(Robot.oi.LEFT_AXIS_X)*driveTrainSpeed,
     			true);  
     	Timer.delay(0.01);

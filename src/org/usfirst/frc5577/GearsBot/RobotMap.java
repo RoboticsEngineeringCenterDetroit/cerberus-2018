@@ -70,11 +70,11 @@ public class RobotMap {
 		clawSwitch = new DoubleSolenoid(2, 3);
 	    clawSwitch.set(DoubleSolenoid.Value.kOff);
 
-		leftWheelEncoder = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
+		leftWheelEncoder = new Encoder(2, 3, true, Encoder.EncodingType.k4X);
 		leftWheelEncoder.setDistancePerPulse(.147262);
 		leftWheelEncoder.setSamplesToAverage(10);
 		leftWheelEncoder.reset();
-		rightWheelEncoder = new Encoder(0, 1, true, Encoder.EncodingType.k4X);
+		rightWheelEncoder = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
 		rightWheelEncoder.setDistancePerPulse(.147262);
 		rightWheelEncoder.setSamplesToAverage(10);
 		rightWheelEncoder.reset();

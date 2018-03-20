@@ -59,10 +59,10 @@ public class DriveForward extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        System.out.println("Right wheel encoder count: " + RobotMap.rightWheelEncoder.get());
-        System.out.println("Right wheel encoder distance traveled: " + RobotMap.rightWheelEncoder.getDistance() / 12);
+        System.out.println("Left wheel encoder count: " + RobotMap.leftWheelEncoder.get());
+        System.out.println("Left wheel encoder distance traveled: " + RobotMap.leftWheelEncoder.getDistance() / 12);
     	
-    	if(RobotMap.rightWheelEncoder.getDistance() >= this.distanceInInches) {
+    	if(RobotMap.leftWheelEncoder.getDistance() >= this.distanceInInches) {
     		System.out.println("Finished the command!");
     		return true;
     	}

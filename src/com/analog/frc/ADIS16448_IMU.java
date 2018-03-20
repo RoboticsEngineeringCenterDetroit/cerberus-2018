@@ -973,15 +973,15 @@ public class ADIS16448_IMU extends GyroBase implements Gyro, PIDSource{
   }
 
   public synchronized double getAngleX() {
-    return m_integ_gyro_x;
+    return m_integ_gyro_x * 180/Math.PI;
   }
 
   public synchronized double getAngleY() {
-    return m_integ_gyro_y;
+    return m_integ_gyro_y * 180/Math.PI;
   }
 
   public synchronized double getAngleZ() {
-    return m_integ_gyro_z;
+    return m_integ_gyro_z * 180/Math.PI;
   }
 
   public synchronized double getRateX() {

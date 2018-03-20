@@ -14,7 +14,7 @@ public class Turn extends Command {
       
       this.turnValue = turnValue;
 
-      setTimeout(1); //Or change back to 5 if something goes wrong       
+//      setTimeout(1); //Or change back to 5 if something goes wrong       
       }
 	
 	public Turn(int degrees) {
@@ -29,18 +29,23 @@ public class Turn extends Command {
 	}
 
 	protected void execute() {
-		System.out.println("The robot is at this angle from starting bearing in degrees: " + Robot.imu.getAngleY() * 360/Math.PI);
+		System.out.println("The robot is at this angle from starting bearing in degrees: " + getAngleOfRotation());
     	Robot.driveTrain.turn(turnValue);
     }
 
     protected boolean isFinished() {
-    	System.out.println(isTimedOut());
-        return Math.abs(Robot.imu.getAngleY() * 360/Math.PI) >= Math.abs(degrees); 
+//    	System.out.println(isTimedOut());
+        return Math.abs(getAngleOfRotation()) >= Math.abs(degrees); 
     }
 
     protected void end() {
+    	System.out.println("Turning has ended!");
     	Robot.imu.reset();
     	Robot.driveTrain.stop(); 
+    }
+    
+    private double getAngleOfRotation() {
+    	return Robot.imu.getAngleX();
     }
 	
 }
