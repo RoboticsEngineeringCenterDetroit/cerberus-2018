@@ -99,10 +99,10 @@ public class OI {
     	bButton.whileHeld(new PlaceCube(0.7));
     	bButton.whenReleased(new PlaceCube(0));
     	
-    	aButton.whileHeld(new DownLift(-0.6));
+    	aButton.whileHeld(new DownLift(-0.2));
     	aButton.whenReleased(new DownLift(0));
     	
-    	yButton.whileHeld(new UpLift(0.75));
+    	yButton.whileHeld(new UpLift(0.40));
     	yButton.whenReleased(new UpLift(0));
 
 //    	lBumper.whileHeld(new Blend(1.0));
