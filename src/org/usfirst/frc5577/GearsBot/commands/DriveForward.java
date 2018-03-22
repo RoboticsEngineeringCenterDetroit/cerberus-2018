@@ -28,11 +28,6 @@ public class DriveForward extends Command {
         requires(Robot.driveTrain);		 
     }
     
-//    public DriveForward(double speed) {
-//    	this();
-//    	this.speed = speed;
- //    }
-    
     public DriveForward(double distanceInFeet) {
     	this();
     	this.distanceInInches = 12 * distanceInFeet;
@@ -44,20 +39,17 @@ public class DriveForward extends Command {
     	this.time = time;
     }
 
-    // Called just before this Command runs the first time
     protected void initialize() {
 //    	setTimeout(time); //Or change back to 5 if something goes wrong
     	RobotMap.leftWheelEncoder.reset();
     	RobotMap.rightWheelEncoder.reset();    	
     }
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
+        protected void execute() {
 //    	Robot.driveTrain.driveTrainForwardWithDistance(distance);
     	Robot.driveTrain.driveTrainFoward(-speed);
     }
 
-    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         System.out.println("Left wheel encoder count: " + RobotMap.leftWheelEncoder.get());
         System.out.println("Left wheel encoder distance traveled: " + RobotMap.leftWheelEncoder.getDistance() / 12);
@@ -67,19 +59,14 @@ public class DriveForward extends Command {
     		return true;
     	}
     	return false;
-//    	return isTimedOut();
     }
-
-    // Called once after isFinished returns true
+    
     protected void end() {
-    	//Robot.climbingArm.disable();
     	Robot.driveTrain.stop();
     	RobotMap.leftWheelEncoder.reset();
     	RobotMap.rightWheelEncoder.reset();
     }
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
     protected void interrupted() {
     	end();
     }
