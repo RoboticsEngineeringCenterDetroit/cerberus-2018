@@ -65,6 +65,15 @@ public class OI {
     
     public OI() {
     	
+    	/*
+    	 * You can uncomment (Ctrl + /) lines of code below to enable buttons
+    	 * on either the driver controller or the manipulator controller.
+    	 * 
+    	 * These are pretty easy to configure, so if you have an idea for 
+    	 * improved controls, let's try it! :)
+    	 */
+    	
+    	// Driver Controller Setup
     	driverController = new Joystick(0);
     	// Comment out the lines below for two controller setup 
 //    	Button driveButtonA = new JoystickButton(controller, A_BUTTON);
@@ -79,7 +88,7 @@ public class OI {
     	
     	rBumperDriver.whenPressed(new ShiftGear());
     	
-    	// Comment out the lines below for one controller setup
+    	// Manipulator Controller Setup
     	manipulatorController = new Joystick(1);
     	Button aButton = new JoystickButton(manipulatorController, A_BUTTON);
     	Button bButton = new JoystickButton(manipulatorController, B_BUTTON);
