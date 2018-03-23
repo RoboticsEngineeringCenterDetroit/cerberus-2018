@@ -47,7 +47,7 @@ public class OI {
 	public final int RIGHT_AXIS_Y = 5;
 	public final int DPAD_AXIS = 6;
  
-    public Joystick driverController = new Joystick(0); //This is for xbox controller one or player one
+    public Joystick driverController; //This is for xbox controller one or player one
     public Joystick manipulatorController; //This is for xbox controller two or player two
     
     public static OI instance;
@@ -104,7 +104,6 @@ public class OI {
     	xButton.whileHeld(new CollectCube(0.8));
     	xButton.whenReleased(new CollectCube(0));
     	
-    	// No reverse refuel! New paddles should allow fuel to go only one direction!
     	bButton.whileHeld(new PlaceCube(0.7));
     	bButton.whenReleased(new PlaceCube(0));
     	
@@ -113,30 +112,17 @@ public class OI {
     	
     	yButton.whileHeld(new UpLift(0.40));
     	yButton.whenReleased(new UpLift(0));
-
-//    	lBumper.whileHeld(new Blend(1.0));
-//    	lBumper.whenReleased(new Blend(0));
-    	
-//    	aButton.whileHeld(new Blend(-1.0));
-//    	aButton.whenReleased(new Blend(0));
     	
     	lBumperManipulator.whenPressed(new ShiftClaw());
     	
-//    	backButton.whenPressed(new BackUp(0.5 , 0.5));
-//    	startButton.whenPressed(new FlipShooterGate(0.4)); 
-    	
-//    	driveButtonA.whileHeld(new ButtonDrive(.8));
-//    	driveButtonB.whileHeld(new ButtonDrive(-.8));
-
-//        SmartDashboard.putData("DriveWithJoysticks", new DriveWithJoysticks());
-
+    	// Smart Dashboard Setup
         SmartDashboard.putData("Practice Auton Driving Straight", new AutonDriveStraight());
         SmartDashboard.putData("Practice Auton Turning", new AutonTurn());
         SmartDashboard.putData("Practice Auton UpLift", new AutonUpLift());
         SmartDashboard.putData("Practice Auton Shoot Cube", new AutonShootCube());
-//        SmartDashboard.putData("Practice Auton Driving from Left", new AutonDriveFromLeft());
-//        SmartDashboard.putData("Practice Auton Driving from Center", new AutonDriveFromCenter());
-//        SmartDashboard.putData("Practice Auton Driving from Right", new AutonDriveFromRight());
+        SmartDashboard.putData("Practice Auton Driving from Left", new AutonDriveFromLeft());
+        SmartDashboard.putData("Practice Auton Driving from Center", new AutonDriveFromCenter());
+        SmartDashboard.putData("Practice Auton Driving from Right", new AutonDriveFromRight());
     }
     
 }
