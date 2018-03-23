@@ -21,7 +21,7 @@ public class AutonDriveFromCenter extends CommandGroup {
     
 	private String gameData;
 	
-    public  AutonDriveFromCenter() {
+	public  AutonDriveFromCenter() {
     	
     	
     	// Get string of three characters
@@ -35,19 +35,22 @@ public class AutonDriveFromCenter extends CommandGroup {
 	    		addSequential(new Turn(-90));
 	    		addSequential(new DriveForward(6));
 	    		addSequential(new Turn(90));
+//	    		addSequential(new UpLift(0.2, 4));
+//				addSequential(new UpLift(0, 1));
 	    		addSequential(new DriveForward(3));
-	    		//TODO Drop Cube in switch
+//				addSequential(new PlaceCube());
+//				addSequential(new ShiftClaw());
 	        } else {
 	        	addSequential(new DriveForward(5));
 	            addSequential(new Turn(90));
 	           	addSequential(new DriveForward(4));
 	            addSequential(new Turn(-90));
+//	            addSequential(new UpLift(0.2, 4));
+//				addSequential(new UpLift(0, 1));
 	            addSequential(new DriveForward(3));
-	            //TODO Drop Cube in switch
+//	            addSequential(new PlaceCube());
+//				addSequential(new ShiftClaw());
 	    	}
     	}
-        
-//    	addSequential(new BackUp(0.5, 0.5));
-    }  
-    
+    	}  
 }
