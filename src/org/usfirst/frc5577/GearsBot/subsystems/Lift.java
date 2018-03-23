@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Lift extends Subsystem {
 	
-	private final double scaleFactor = 0.8;
 	private StringBuilder sb = new StringBuilder();
 	int loops = 0;
 	
@@ -50,10 +49,6 @@ public class Lift extends Subsystem {
 		sb.append("\tspeed");
 		sb.append(RobotMap.talonSRX8.getSelectedSensorVelocity(0));
 		
-//		double rightTrigger = controller.getRawAxis(Robot.oi.RIGHT_TRIGGER_AXIS);
-//		RobotMap.shooterLeftMotor.setInverted(false);
-//		RobotMap.shooterRightMotor.setInverted(false);
-		
 		double targetSpeed = speed; // 6000 RPM target
 		RobotMap.talonSRX7.set(ControlMode.PercentOutput, targetSpeed);
 		
@@ -70,7 +65,7 @@ public class Lift extends Subsystem {
 		sb.append("/ttrg:");  
 		sb.append(targetSpeed1);
 	
-		
+//		Uncomment below to print out motor speed
 //		if(++loops >= 10) { 
 //			loops = 0; 
 //			System.out.println(sb.toString()); 
@@ -82,9 +77,8 @@ public class Lift extends Subsystem {
 	}
 	
 	public void stop() {
-//		RobotMap.talonSRX2.set(ControlMode.PercentOutput, 0);
-//		RobotMap.blenderMotor.set(0);
-//    	Timer.delay(0.005);
+		RobotMap.talonSRX7.set(ControlMode.PercentOutput, 0);
+		RobotMap.talonSRX8.set(ControlMode.PercentOutput, 0);
 	}
 
 	@Override
