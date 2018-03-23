@@ -11,11 +11,6 @@
 
 package org.usfirst.frc5577.GearsBot;
 
-import java.util.Comparator;
-import java.util.Vector;
-
-import edu.wpi.cscore.CvSink;
-import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -23,23 +18,14 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.vision.VisionThread;
 
-import org.opencv.core.Mat;
-import org.opencv.core.Rect;
-import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc5577.GearsBot.commands.*;
 import org.usfirst.frc5577.GearsBot.subsystems.*;
 
 import com.analog.frc.ADIS16448_IMU;
 import com.analog.frc.ADXRS453Gyro;
-
-import vision.GripPipeline;
-
  
 /**
  * The VM is configured to automatically run this class, and to call the
